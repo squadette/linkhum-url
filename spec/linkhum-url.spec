@@ -80,4 +80,10 @@ describe Linkhum::URL do
     end
   end
 
+  it "handles non-UTF8 percent-encoded URLs" do
+    lu = Linkhum::URL.parse("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
+    expect(lu[:human_readable]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
+    expect(lu[:url_encoded]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
+  end
+
 end

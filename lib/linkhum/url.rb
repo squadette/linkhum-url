@@ -30,6 +30,13 @@ module Linkhum
 
       human_readable[:query] = Addressable::URI.unencode_component(au.query)
       if au.query
+        decoded_query = human_readable[:query].dup
+        if !decoded_query.force_encoding(Encoding::UTF_8).valid_encoding?
+          human_readable[:query] = au.query
+        end
+      end
+
+      if au.query
         # see above
         au_query = au.query.dup
         if au_query =~ /\A[\x00-\x7F]*\z/
