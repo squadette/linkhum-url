@@ -72,6 +72,12 @@ describe Linkhum::URL do
       expect(lu[:human_readable]).to eql("https://example.org/search.html?q=#{testcase[1]}")
       expect(lu[:url_encoded]).to eql("https://example.org/search.html?q=#{testcase[2]}")
     end
+
+    it "handles percent-encoded query strings in Unicode #{testcase[0]}" do
+      lu = Linkhum::URL.parse("https://example.org/search.html?q=#{testcase[2]}")
+      expect(lu[:human_readable]).to eql("https://example.org/search.html?q=#{testcase[1]}")
+      expect(lu[:url_encoded]).to eql("https://example.org/search.html?q=#{testcase[2]}")
+    end
   end
 
 end
