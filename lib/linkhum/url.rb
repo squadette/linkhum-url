@@ -17,7 +17,7 @@ module Linkhum
       end
       url_encoded[:host] = au.normalized_host
 
-      human_readable[:path] = au.path
+      human_readable[:path] = Addressable::URI.unencode_component(au.path)
       url_encoded[:path] = au.normalized_path
 
       human_readable[:query] = au.query
