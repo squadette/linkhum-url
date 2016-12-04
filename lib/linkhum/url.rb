@@ -22,12 +22,11 @@ module Linkhum
       # converts paths to Unicode NFKC (it should only do that for
       # hostnames).  Patch to Addressable::URI pending.
       au_path = au.path.dup
-      if au_path =~ /[^\x00-\x7f]/
-        au_path.force_encoding(Encoding::ASCII_8BIT)
-        url_encoded[:path] = Addressable::URI.encode_component(au_path)
-      else
-        url_encoded[:path] = au.normalized_path
+      if au_path =~ /\A[\x00-\x7F]*\z/
+        au_path = Addressable::URI.unencode_component(au_path)
       end
+      au_path.force_encoding(Encoding::ASCII_8BIT)
+      url_encoded[:path] = Addressable::URI.encode_component(au_path)
 
       human_readable[:query] = Addressable::URI.unencode_component(au.query)
       url_encoded[:query] = au.normalized_query
