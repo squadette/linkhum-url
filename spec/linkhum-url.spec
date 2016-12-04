@@ -50,4 +50,16 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("https://example.org/venues.html#пивбар")
   end
 
+  unicode_path = "Çalışma.jpg" # see http://unicode.org/reports/tr15/
+  [
+    ["NFD", unicode_path.unicode_normalize(:nfd), "C%CC%A7al%C4%B1s%CC%A7ma.jpg"],
+    ["NFC", unicode_path.unicode_normalize(:nfc), "%C3%87al%C4%B1%C5%9Fma.jpg"]
+  ].each do |testcase|
+    it "handles Unicode #{testcase[0]}-encoded paths" do
+      lu = Linkhum::URL.parse("https://example.org/#{testcase[1]}")
+      expect(lu[:human_readable]).to eql("https://example.org/#{testcase[1]}")
+      expect(lu[:url_encoded]).to eql("https://example.org/#{testcase[2]}")
+    end
+  end
+
 end

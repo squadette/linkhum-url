@@ -18,7 +18,16 @@ module Linkhum
       url_encoded[:host] = au.normalized_host
 
       human_readable[:path] = Addressable::URI.unencode_component(au.path)
-      url_encoded[:path] = au.normalized_path
+      # this code handles bug in Addressable::URI (up to 2.5.0), which
+      # converts paths to Unicode NFKC (it should only do that for
+      # hostnames).  Patch to Addressable::URI pending.
+      au_path = au.path.dup
+      if au_path =~ /[^\x00-\x7f]/
+        au_path.force_encoding(Encoding::ASCII_8BIT)
+        url_encoded[:path] = Addressable::URI.encode_component(au_path)
+      else
+        url_encoded[:path] = au.normalized_path
+      end
 
       human_readable[:query] = Addressable::URI.unencode_component(au.query)
       url_encoded[:query] = au.normalized_query
