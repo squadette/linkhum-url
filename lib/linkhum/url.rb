@@ -3,6 +3,8 @@ module Linkhum
     require 'addressable'
     require 'idn'
 
+    include IDN
+
     def self.parse(url)
       au = Addressable::URI.parse(url)
       human_readable = { scheme: au.scheme, userinfo: au.userinfo }

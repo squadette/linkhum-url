@@ -13,4 +13,10 @@ describe Linkhum::URL do
     expect(lu[:human_readable]).to eql("https://пивбар.рф/")
     expect(lu[:url_encoded]).to eql("https://xn--80abcx8ak.xn--p1ai/")
   end
+
+  it "handles Punycode hostnames" do
+    lu = Linkhum::URL.parse("https://xn--80abcx8ak.xn--p1ai/")
+    expect(lu[:human_readable]).to eql("https://пивбар.рф/")
+    expect(lu[:url_encoded]).to eql("https://xn--80abcx8ak.xn--p1ai/")
+  end
 end
