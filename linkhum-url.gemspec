@@ -9,5 +9,7 @@ Gem::Specification.new do |s|
   s.files       = ["lib/linkhum/url.rb"]
   s.homepage    = 'http://rubygems.org/gems/linkhum-url'
   s.license     = 'MIT'
+  s.add_runtime_dependency "addressable"
+  s.add_runtime_dependency "idn-ruby"
   s.add_development_dependency "rspec"
 end
