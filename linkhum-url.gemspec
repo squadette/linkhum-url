@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Input URL could be both human-readable and URL-encoded.  Two URLs are returned as result: human-readable and URL-encoded"
   s.authors     = ["Alexey Makhotkin"]
   s.email       = 'squadette@gmail.com'
-  s.files       = ["lib/linkhum/url.rb", "lib/linkhum-url.rb", "LICENSE.txt", "README.md" ]
+  s.files       = ["lib/linkhum/url.rb", "lib/linkhum-url.rb", "LICENSE.txt", "README.md", "CHANGELOG.md" ]
   s.homepage    = 'http://rubygems.org/gems/linkhum-url'
   s.license     = 'MIT'
   s.add_runtime_dependency "addressable", "~> 2.0"
