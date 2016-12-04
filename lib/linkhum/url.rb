@@ -20,7 +20,7 @@ module Linkhum
       human_readable[:path] = Addressable::URI.unencode_component(au.path)
       url_encoded[:path] = au.normalized_path
 
-      human_readable[:query] = au.query
+      human_readable[:query] = Addressable::URI.unencode_component(au.query)
       url_encoded[:query] = au.normalized_query
 
       human_readable[:fragment] = au.fragment
