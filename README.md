@@ -24,10 +24,10 @@ embedding etc.
      => true
     2.3.0 :002 > Linkhum::URL.parse("https://example.org")
      => {:human_readable=>"https://example.org", :url_encoded=>"https://example.org"}
-    2.3.0 :003 > Linkhum::URL.parse("https://пивбар.рф/поиск.html?q=пивбар")
-     => {:human_readable=>"https://пивбар.рф/поиск.html?q=пивбар", :url_encoded=>"https://xn--80abcx8ak.xn--p1ai/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80"}
+    2.3.0 :003 > Linkhum::URL.parse("https://пивбар-хмель.рф/поиск.html?q=пивбар")
+     => {:human_readable=>"https://пивбар-хмель.рф/поиск.html?q=пивбар", :url_encoded=>"https://xn----7sbcdsn0agvo0d1e.xn--p1ai/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80"}
     2.3.0 :004 > Linkhum::URL.parse("https://xn--80abcx8ak.xn--p1ai/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80")
-     => {:human_readable=>"https://пивбар.рф/поиск.html?q=пивбар", :url_encoded=>"https://xn--80abcx8ak.xn--p1ai/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80"}
+     => {:human_readable=>"https://пивбар-хмель.рф/поиск.html?q=пивбар", :url_encoded=>"https://xn----7sbcdsn0agvo0d1e.xn--p1ai/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80"}
 
 ## Install
 
