@@ -32,7 +32,7 @@ embedding etc.
 ## Install
 
     $ sudo apt-get install idn   # Debian/Ubuntu
-    $ brew install libidn        # OS X
+    $ brew install libidn        # Mac OS X
 
     $ gem install linkhum-url
 
