@@ -66,6 +66,12 @@ describe Linkhum::URL do
       expect(lu[:human_readable]).to eql("https://example.org/#{testcase[1]}")
       expect(lu[:url_encoded]).to eql("https://example.org/#{testcase[2]}")
     end
+
+    it "handles Unicode #{testcase[0]}-encoded query strings" do
+      lu = Linkhum::URL.parse("https://example.org/search.html?q=#{testcase[1]}")
+      expect(lu[:human_readable]).to eql("https://example.org/search.html?q=#{testcase[1]}")
+      expect(lu[:url_encoded]).to eql("https://example.org/search.html?q=#{testcase[2]}")
+    end
   end
 
 end

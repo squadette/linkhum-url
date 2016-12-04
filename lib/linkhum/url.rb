@@ -29,7 +29,15 @@ module Linkhum
       url_encoded[:path] = Addressable::URI.encode_component(au_path)
 
       human_readable[:query] = Addressable::URI.unencode_component(au.query)
-      url_encoded[:query] = au.normalized_query
+      if au.query
+        # see above
+        au_query = au.query.dup
+        if au_query =~ /\A[\x00-\x7F]*\z/
+          au_query = Addressable::URI.unencode_component(au_query)
+        end
+        au_query.force_encoding(Encoding::ASCII_8BIT)
+      end
+      url_encoded[:query] = Addressable::URI.encode_component(au_query)
 
       # fragments do not need to be encoded
       human_readable[:fragment] = au.fragment
