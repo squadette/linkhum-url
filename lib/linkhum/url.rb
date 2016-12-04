@@ -21,7 +21,7 @@ module Linkhum
       url_encoded[:path] = au.normalized_path
 
       human_readable[:query] = au.query
-      url_encoded[:query] = au.query
+      url_encoded[:query] = au.normalized_query
 
       human_readable[:fragment] = au.fragment
       url_encoded[:fragment] = au.fragment
