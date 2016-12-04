@@ -23,6 +23,7 @@ module Linkhum
       human_readable[:query] = Addressable::URI.unencode_component(au.query)
       url_encoded[:query] = au.normalized_query
 
+      # fragments do not need to be encoded
       human_readable[:fragment] = au.fragment
       url_encoded[:fragment] = au.fragment
 
