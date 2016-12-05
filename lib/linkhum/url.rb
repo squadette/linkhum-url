@@ -56,9 +56,10 @@ module Linkhum
 
     private
     def self.generate_url(parts)
+      userinfo_part = parts[:userinfo] ? "#{parts[:userinfo]}@" : ""
       query_part = parts[:query] ? "?#{parts[:query]}" : ""
       fragment_part = parts[:fragment] ? "##{parts[:fragment]}" : ""
-      "#{parts[:scheme]}://#{parts[:userinfo]}#{parts[:host]}#{parts[:path]}#{query_part}#{fragment_part}"
+      "#{parts[:scheme]}://#{userinfo_part}#{parts[:host]}#{parts[:path]}#{query_part}#{fragment_part}"
     end
   end
 end

@@ -50,6 +50,12 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("https://example.org/venues.html#пивбар")
   end
 
+  it "handles username/password" do
+    lu = Linkhum::URL.parse("https://user:pass1@example.org/")
+    expect(lu[:human_readable]).to eql("https://user:pass1@example.org/")
+    expect(lu[:url_encoded]).to eql("https://user:pass1@example.org/")
+  end
+
   unicode_path = "Çalışma.jpg" # see http://unicode.org/reports/tr15/
   [
     ["NFD", unicode_path.unicode_normalize(:nfd), "C%CC%A7al%C4%B1s%CC%A7ma.jpg"],
