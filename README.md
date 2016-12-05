@@ -10,6 +10,8 @@ scenes `addressable` gem is used to handle actual URL parsing.
 This is a sister gem to
 [`linkhum`](https://github.com/zverok/linkhum).
 
+[![Build Status](https://travis-ci.org/squadette/linkhum-url.svg?branch=master)](https://travis-ci.org/squadette/linkhum-url)
+
 ## Usage
 
 `linkhum-url` has only one method: `Linkhum::URL.parse(url)`.  It
