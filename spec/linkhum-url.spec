@@ -1,5 +1,5 @@
-# coding: utf-8
-require 'spec_helper' # -*- ruby -*- 
+# coding: utf-8  # -*- ruby -*-
+require 'spec_helper'
 
 describe Linkhum::URL do
   it "handles ASCII-only URLs" do
@@ -90,6 +90,18 @@ describe Linkhum::URL do
     lu = Linkhum::URL.parse("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
     expect(lu[:human_readable]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
     expect(lu[:url_encoded]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
+  end
+
+  it "handles Punycode/percent-encoded Devanagari" do
+    lu = Linkhum::URL.parse("http://xn--p1b6ci4b4b3a.xn--11b5bs3a9aj6g/%E0%A4%AE%E0%A5%81%E0%A4%96%E0%A5%8D%E0%A4%AF_%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0")
+    expect(lu[:human_readable]).to eql("http://उदाहरण.परीक्षा/मुख्य_पृष्ठ")
+    expect(lu[:url_encoded]).to eql("http://xn--p1b6ci4b4b3a.xn--11b5bs3a9aj6g/%E0%A4%AE%E0%A5%81%E0%A4%96%E0%A5%8D%E0%A4%AF_%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0")
+  end
+
+  it "handles Devanagari" do
+    lu = Linkhum::URL.parse("http://उदाहरण.परीक्षा/मुख्य_पृष्ठ")
+    expect(lu[:human_readable]).to eql("http://उदाहरण.परीक्षा/मुख्य_पृष्ठ")
+    expect(lu[:url_encoded]).to eql("http://xn--p1b6ci4b4b3a.xn--11b5bs3a9aj6g/%E0%A4%AE%E0%A5%81%E0%A4%96%E0%A5%8D%E0%A4%AF_%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0")
   end
 
 end
