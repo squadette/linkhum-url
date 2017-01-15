@@ -1,3 +1,7 @@
+0.1.2:
+
+* Handle explicit port numbers in URLs;
+
 0.1.1:
 
 * Handle percent-encoded non-UTF8 query strings: return

@@ -20,6 +20,12 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("https://xn----7sbcdsn0agvo0d1e.xn--p1ai/")
   end
 
+  it "handles port numbers" do
+    lu = Linkhum::URL.parse("http://linkhum.dev:8080/something.html")
+    expect(lu[:human_readable]).to eql("http://linkhum.dev:8080/something.html")
+    expect(lu[:url_encoded]).to eql("http://linkhum.dev:8080/something.html")
+  end
+
   it "handles non-ASCII pathnames" do
     lu = Linkhum::URL.parse("https://example.org/пивбар-хмель.html")
     expect(lu[:human_readable]).to eql("https://example.org/пивбар-хмель.html")

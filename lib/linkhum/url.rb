@@ -17,6 +17,9 @@ module Linkhum
       end
       url_encoded[:host] = au.normalized_host
 
+      url_encoded[:port] = au.port ? ":#{au.port}" : ""
+      human_readable[:port] = url_encoded[:port]
+
       human_readable[:path] = Addressable::URI.unencode_component(au.path)
       # this code handles bug in Addressable::URI (up to 2.5.0), which
       # converts paths to Unicode NFKC (it should only do that for
@@ -59,7 +62,7 @@ module Linkhum
       userinfo_part = parts[:userinfo] ? "#{parts[:userinfo]}@" : ""
       query_part = parts[:query] ? "?#{parts[:query]}" : ""
       fragment_part = parts[:fragment] ? "##{parts[:fragment]}" : ""
-      "#{parts[:scheme]}://#{userinfo_part}#{parts[:host]}#{parts[:path]}#{query_part}#{fragment_part}"
+      "#{parts[:scheme]}://#{userinfo_part}#{parts[:host]}#{parts[:port]}#{parts[:path]}#{query_part}#{fragment_part}"
     end
   end
 end
