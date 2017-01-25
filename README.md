@@ -42,4 +42,4 @@ embedding etc.
 
 `linkhum-url` released under MIT License.
 
-Copyright (C) Alexey Makhotkin, 2016.
+Copyright (C) Alexey Makhotkin, 2016-2017.

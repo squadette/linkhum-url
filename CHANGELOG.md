@@ -1,3 +1,7 @@
+0.1.3:
+
+* Handle IDNs which begin with ASCII;
+
 0.1.2:
 
 * Handle explicit port numbers in URLs;

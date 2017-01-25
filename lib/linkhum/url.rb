@@ -10,7 +10,7 @@ module Linkhum
       human_readable = { scheme: au.scheme, userinfo: au.userinfo }
       url_encoded = { scheme: au.scheme, userinfo: au.userinfo }
 
-      if au.host =~ /\Axn--/
+      if au.host =~ /\bxn--/
         human_readable[:host] = Idna.toUnicode(au.host)
       else
         human_readable[:host] = au.host

@@ -20,6 +20,12 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("https://xn----7sbcdsn0agvo0d1e.xn--p1ai/")
   end
 
+  it "handles Punycode hostnames which begin with ASCII" do
+    lu = Linkhum::URL.parse("https://18.xn--b1aew.xn--p1ai/")
+    expect(lu[:human_readable]).to eql("https://18.мвд.рф/")
+    expect(lu[:url_encoded]).to eql("https://18.xn--b1aew.xn--p1ai/")
+  end
+
   it "handles port numbers" do
     lu = Linkhum::URL.parse("http://linkhum.dev:8080/something.html")
     expect(lu[:human_readable]).to eql("http://linkhum.dev:8080/something.html")
