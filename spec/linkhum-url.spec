@@ -115,11 +115,28 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("http://xn--p1b6ci4b4b3a.xn--11b5bs3a9aj6g/%E0%A4%AE%E0%A5%81%E0%A4%96%E0%A5%8D%E0%A4%AF_%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0")
   end
 
+  ["%", "#", "?", "&"].each do |char|
+    it "handles percent-encoded #{char} symbol in path" do
+      encoded = URI.encode(char)
+      url = "http://example.com/#{encoded}"
+      lu = Linkhum::URL.parse(url)
+      expect(lu[:human_readable]).to eql("http://example.com/#{char}")
+      expect(lu[:url_encoded]).to eql("http://example.com/#{encoded}")
+    end
+
+    it "handles percent-encoded #{char} symbol in query" do
+      encoded = URI.encode(char)
+      url = "http://example.com/?query=#{encoded}"
+      lu = Linkhum::URL.parse(url)
+      expect(lu[:human_readable]).to eql("http://example.com/?query=#{char}")
+      expect(lu[:url_encoded]).to eql("http://example.com/?query=#{encoded}")
+    end
+  end
+
   it "accepts an instance of Addressable" do
     uri = Addressable::URI.parse("https://github.com/sporkmonger/addressable")
     lu = Linkhum::URL.parse(uri)
     expect(lu[:human_readable]).to eql("https://github.com/sporkmonger/addressable")
     expect(lu[:url_encoded]).to eql("https://github.com/sporkmonger/addressable")
   end
-
 end
