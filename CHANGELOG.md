@@ -1,3 +1,7 @@
+0.1.4:
+
+* Handle URLs with hashtags in query strings (tnx @markiz);
+
 0.1.3:
 
 * Handle IDNs which begin with ASCII;
