@@ -71,7 +71,7 @@ module Linkhum
     end
 
     def self.unencode_component(string, skip_special_chars = true)
-      chars_to_keep_encoded = skip_special_chars ? "%#" : ""
+      chars_to_keep_encoded = skip_special_chars ? "%#&?+" : ""
       Addressable::URI.unencode_component(string, String, chars_to_keep_encoded)
     end
   end
