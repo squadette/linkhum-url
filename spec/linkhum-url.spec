@@ -115,7 +115,7 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("http://xn--p1b6ci4b4b3a.xn--11b5bs3a9aj6g/%E0%A4%AE%E0%A5%81%E0%A4%96%E0%A5%8D%E0%A4%AF_%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0")
   end
 
-  ["%", "#", "?", "&"].each do |char|
+  ["%", "#", "?", "&", "+"].each do |char|
     it "handles percent-encoded #{char} symbol in path" do
       encoded = URI.encode(char)
       url = "http://example.com/#{encoded}"
@@ -125,7 +125,7 @@ describe Linkhum::URL do
     end
 
     it "handles percent-encoded #{char} symbol in query" do
-      encoded = URI.encode(char)
+      encoded = URI.encode_www_form_component(char)
       url = "http://example.com/?query=#{encoded}"
       lu = Linkhum::URL.parse(url)
       expect(lu[:human_readable]).to eql("http://example.com/?query=#{char}")
