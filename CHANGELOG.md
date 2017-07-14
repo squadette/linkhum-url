@@ -1,3 +1,7 @@
+0.1.5:
+
+* More fixes to URLs with special symbols in query strings (tnx @markiz);
+
 0.1.4:
 
 * Handle URLs with hashtags in query strings (tnx @markiz);
