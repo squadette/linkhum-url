@@ -1,6 +1,6 @@
-0.1.6:
+0.1.7:
 
-* square brackets are also special strings, because of HTTParty;
+* percent-encode square brackets in :url_encoded part of the result, because of HTTParty;
 
 0.1.5:
 

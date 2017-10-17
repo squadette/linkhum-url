@@ -56,6 +56,12 @@ describe Linkhum::URL do
     expect(lu[:url_encoded]).to eql("https://example.org/search.html?q=%D0%BF%D0%B8%D0%B2%D0%B1%D0%B0%D1%80")
   end
 
+  it "percent-encodes square brackets in paths" do
+    lu = Linkhum::URL.parse("http://www.example.com/image[2].jpg")
+    expect(lu[:human_readable]).to eql("http://www.example.com/image[2].jpg")
+    expect(lu[:url_encoded]).to eql("http://www.example.com/image%5B2%5D.jpg")
+  end
+
   it "handles non-ASCII fragments" do
     lu = Linkhum::URL.parse("https://example.org/venues.html#пивбар")
     expect(lu[:human_readable]).to eql("https://example.org/venues.html#пивбар")

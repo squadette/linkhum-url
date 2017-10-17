@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'linkhum-url'
-  s.version     = '0.1.6'
+  s.version     = '0.1.7'
   s.date        = '2017-10-17'
   s.summary     = "Linkhum-URL creates both URL-encoded and readable versions of URLs"
   s.description = "Input URL could be either human-readable, or URL-encoded.  Two URLs are returned as result: human-readable and URL-encoded."

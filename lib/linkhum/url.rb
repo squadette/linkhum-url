@@ -65,7 +65,7 @@ module Linkhum
     end
 
     def self.encode_component(string, skip_percent_sign = true)
-      chars_to_keep_unencoded = Addressable::URI::CharacterClasses::RESERVED + Addressable::URI::CharacterClasses::UNRESERVED
+      chars_to_keep_unencoded = "\\:\\/\\?\\#\\@\\!\\$\\&\\'\\(\\)\\*\\+\\,\\;\\=" + Addressable::URI::CharacterClasses::UNRESERVED
       chars_to_keep_unencoded << '\\%' if skip_percent_sign
       Addressable::URI.encode_component(string, chars_to_keep_unencoded)
     end
