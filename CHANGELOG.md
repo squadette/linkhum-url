@@ -1,3 +1,7 @@
+0.1.6:
+
+* square brackets are also special strings, because of HTTParty;
+
 0.1.5:
 
 * More fixes to URLs with special symbols in query strings (tnx @markiz);
@@ -8,7 +12,7 @@
 
 0.1.3:
 
-* Handle IDNs which begin with ASCII;
+* Handle IDNs that begin with ASCII;
 
 0.1.2:
 
