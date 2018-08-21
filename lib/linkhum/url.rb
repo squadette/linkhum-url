@@ -30,6 +30,11 @@ module Linkhum
       end
       au_path.force_encoding(Encoding::ASCII_8BIT)
       url_encoded[:path] = encode_component(au_path)
+      decoded_path = human_readable[:path].dup
+      if !decoded_path.force_encoding(Encoding::UTF_8).valid_encoding?
+          human_readable[:path] = au.path
+      end
+
       human_readable[:query] = unencode_component(au.query, false)
       if au.query
         decoded_query = human_readable[:query].dup
@@ -37,7 +42,6 @@ module Linkhum
           human_readable[:query] = au.query
         end
       end
-
       if au.query
         # see above
         au_query = au.query.dup

@@ -1,3 +1,7 @@
+0.1.8:
+
+* handle invalid UTF-8 in percent-encoded paths;
+
 0.1.7:
 
 * percent-encode square brackets in :url_encoded part of the result, because of HTTParty;

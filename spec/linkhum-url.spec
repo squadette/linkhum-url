@@ -103,10 +103,17 @@ describe Linkhum::URL do
     end
   end
 
-  it "handles non-UTF8 percent-encoded URLs" do
+  it "handles non-UTF8 percent-encoded query" do
     lu = Linkhum::URL.parse("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
     expect(lu[:human_readable]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
     expect(lu[:url_encoded]).to eql("http://www.alib.ru/find3.php4?tfind=%EB%EE%F6%E8%FF")
+  end
+
+  it "handles non-UTF8 percent-encoded URL" do
+    url = "http://galaktikinsan.com/2017/11/20/korkunc-plan-insanlik-nufusunun-%90-ni-ni-yok-etmek/"
+    lu = Linkhum::URL.parse(url)
+    expect(lu[:url_encoded]).to eql(url)
+    expect(lu[:human_readable]).to eql(url)
   end
 
   it "handles Punycode/percent-encoded Devanagari" do
