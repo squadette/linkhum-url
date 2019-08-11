@@ -33,8 +33,9 @@ embedding etc.
 
 ## Install
 
-    $ sudo apt-get install idn   # Debian/Ubuntu
-    $ brew install libidn        # Mac OS X
+    $ sudo apt-get install libidn11 libidn11-dev  # Ubuntu Xenial
+    $ sudo apt-get install idn                    # Older Debian/Ubuntu
+    $ brew install libidn                         # Mac OS X
 
     $ gem install linkhum-url
 
@@ -42,4 +43,4 @@ embedding etc.
 
 `linkhum-url` released under MIT License.
 
-Copyright (C) Alexey Makhotkin, 2016-2017.
+Copyright (C) Alexey Makhotkin, 2016-2019.
