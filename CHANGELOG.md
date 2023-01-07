@@ -1,3 +1,7 @@
+0.1.9:
+
+* support Ruby 3.0;
+
 0.1.8:
 
 * handle invalid UTF-8 in percent-encoded paths;
