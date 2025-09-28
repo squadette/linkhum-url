@@ -14,7 +14,7 @@ This is a sister gem to
 
 `linkhum-url` has only one method: `Linkhum::URL.parse(url)`.  It
 accepts URL in any representation (usually provided by user) and
-returns `Hash` with two keys: `:human_readable` and `:url_encoded`.
+returns a `Hash` with two keys: `:human_readable` and `:url_encoded`.
 Human-readable representation should be displayed to the user, while
 URL-encoded representation should be used for HTTP queries, HTML
 embedding etc.
@@ -31,9 +31,9 @@ embedding etc.
 
 ## Install
 
-    $ sudo apt-get install libidn11 libidn11-dev  # Ubuntu Xenial
-    $ sudo apt-get install idn                    # Older Debian/Ubuntu
-    $ brew install libidn                         # Mac OS X
+    $ sudo apt-get install libidn2-dev            # Ubuntu
+    $ sudo apt-get install idn2                   # Older Debian/Ubuntu
+    $ brew install libidn2                        # macOS
 
     $ gem install linkhum-url
 
@@ -41,4 +41,4 @@ embedding etc.
 
 `linkhum-url` released under MIT License.
 
-Copyright (C) Alexey Makhotkin, 2016-2019.
+Copyright (C) Alexey Makhotkin, 2016-2025.

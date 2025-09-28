@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -9,7 +9,6 @@ ENV PACKAGES  "\
     build-essential \
     gpg gpg-agent \
     libidn2-dev \
-    libidn11 libidn11-dev \
     gawk autoconf automake bison libffi-dev libgdbm-dev libncurses5-dev libsqlite3-dev libtool libyaml-dev pkg-config sqlite3 zlib1g-dev libgmp-dev libreadline-dev libssl-dev \
     "
 

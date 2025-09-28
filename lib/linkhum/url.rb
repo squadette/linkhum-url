@@ -1,9 +1,7 @@
 module Linkhum
   class URL
     require 'addressable'
-    require 'idn'
-
-    include IDN
+    require "idn2_wrap"
 
     def self.parse(url)
       au = Addressable::URI.parse(url)
@@ -11,7 +9,7 @@ module Linkhum
       url_encoded = { scheme: au.scheme, userinfo: au.userinfo }
 
       if au.host =~ /\bxn--/
-        human_readable[:host] = Idna.toUnicode(au.host)
+        human_readable[:host] = Idn2Wrap.to_unicode(au.host)
       else
         human_readable[:host] = au.host
       end

@@ -1,3 +1,7 @@
+0.2.0:
+
+* migrate to idn2_wrap gem, which uses libidn2;
+
 0.1.9:
 
 * support Ruby 3.0;
