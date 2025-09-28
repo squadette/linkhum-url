@@ -1,0 +1,12 @@
+volumes:
+  linkhum-url-rvm:
+
+services:
+  shell:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /var/linkhum-url/src
+        consistency: cached
+      - linkhum-url-rvm:/var/linkhum-url/rvm

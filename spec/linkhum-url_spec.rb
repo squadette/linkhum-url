@@ -1,5 +1,6 @@
 # coding: utf-8  # -*- ruby -*-
 require 'spec_helper'
+require 'uri'
 
 describe Linkhum::URL do
   it "handles ASCII-only URLs" do
